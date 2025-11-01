@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Start_Year_and_End_Year_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>VALUE( RIGHT(   Start_date__c  , 4) ) &gt;  
+ VALUE( RIGHT( End_date__c , 4) )</errorConditionFormula>
+    <errorMessage>Start Year should not be greater than End Year</errorMessage>
+</ValidationRule>

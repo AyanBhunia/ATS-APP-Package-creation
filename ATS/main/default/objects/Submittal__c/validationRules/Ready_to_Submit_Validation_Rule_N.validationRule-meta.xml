@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ready_to_Submit_Validation_Rule_N</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISPICKVAL( Stage__c , &apos;Ready for Submit&apos;),ISBLANK( Internal_Verification_Date__c))</errorConditionFormula>
+    <errorDisplayField>Internal_Verification_Date__c</errorDisplayField>
+    <errorMessage>Enter Internal Verification Date</errorMessage>
+</ValidationRule>

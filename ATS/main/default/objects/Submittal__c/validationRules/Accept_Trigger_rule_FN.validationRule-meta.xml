@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accept_Trigger_rule_FN</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( OR(ISPICKVAL(Status__c,&apos;Client Accept&apos;), ISPICKVAL(Status__c, &apos;Internal Accept&apos;)) ,
+ISBLANK(Accepted_Comment__c ))</errorConditionFormula>
+    <errorDisplayField>Accepted_Comment__c</errorDisplayField>
+    <errorMessage>Enter Accepted Comment</errorMessage>
+</ValidationRule>

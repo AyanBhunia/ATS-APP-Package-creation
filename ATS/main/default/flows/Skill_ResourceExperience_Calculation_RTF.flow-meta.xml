@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <assignments>
+        <name>Test_Assign</name>
+        <label>Test Assign</label>
+        <locationX>314</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>MonthST</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Value_for_Year_Month_ST</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>YearST</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Value_for_year_month_SE</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Scenario_2_Value</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Check_Start_Date_and_End_Date</name>
+        <label>Check Start Date and End Date</label>
+        <locationX>314</locationX>
+        <locationY>287</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Start_Date_and_End_Date_not_Blank</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.dbt__Start_date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.dbt__End_date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Scenario_1_Value</targetReference>
+            </connector>
+            <label>Start Date and End Date not Blank</label>
+        </rules>
+        <rules>
+            <name>Start_Date_is_Not_Blank_and_End_Date_is_Blank</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.dbt__Start_date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.dbt__End_date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Test_Assign</targetReference>
+            </connector>
+            <label>Start Date is Not Blank and End Date is Blank</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>Month_Calculation_SE</name>
+        <dataType>Number</dataType>
+        <expression>MOD({!Value_for_year_month_SE},12)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Month_Calculation_ST</name>
+        <dataType>Number</dataType>
+        <expression>MOD({!Value_for_Year_Month_ST},12)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>StartDateandCurrentDate</name>
+        <dataType>String</dataType>
+        <expression>IF( AND({!Year_Calculation_ST}&gt;1, {!Month_Calculation_ST}&gt;1), TEXT({!Year_Calculation_ST}) +&quot; &quot;+ &quot;Years&quot;+ &quot; &quot; + TEXT({!Month_Calculation_ST})  +&quot; &quot;+ &quot;Months&quot;, 
+IF(AND({!Year_Calculation_ST}&gt;1, {!Month_Calculation_ST}=1) , TEXT({!Year_Calculation_ST}) +&quot; &quot;+ &quot;Years&quot;+ &quot; &quot; + TEXT({!Month_Calculation_ST})  +&quot; &quot;+ &quot;Month&quot;, 
+IF(AND({!Year_Calculation_ST}=1, {!Month_Calculation_ST}&gt;1), TEXT({!Year_Calculation_ST}) +&quot; &quot;+ &quot;Year&quot;+ &quot; &quot; + TEXT({!Month_Calculation_ST})  +&quot; &quot;+ &quot;Months&quot;, 
+IF(AND({!Year_Calculation_ST}=1, {!Month_Calculation_ST}=1), TEXT({!Year_Calculation_ST}) +&quot; &quot;+ &quot;Year&quot;+ &quot; &quot; + TEXT({!Month_Calculation_ST})  +&quot; &quot;+ &quot;Month&quot;, 
+IF(AND({!Year_Calculation_ST}=0, {!Month_Calculation_ST}&gt;1), TEXT({!Month_Calculation_ST})  +&quot; &quot;+ &quot;Months&quot;, 
+IF(AND({!Year_Calculation_ST}=0, {!Month_Calculation_ST}=1), TEXT({!Month_Calculation_ST})  +&quot; &quot;+ &quot;Month&quot;, 
+IF(AND({!Year_Calculation_ST}&gt;1, {!Month_Calculation_ST}=0), TEXT({!Year_Calculation_ST}) +&quot; &quot;+ &quot;Years&quot;, 
+IF(AND({!Year_Calculation_ST}=1, {!Month_Calculation_ST}=0), TEXT({!Year_Calculation_ST}) +&quot; &quot;+ &quot;Year&quot;, &apos;&apos;))))))))</expression>
+    </formulas>
+    <formulas>
+        <name>StartDateandEndDate</name>
+        <dataType>String</dataType>
+        <expression>IF( AND({!Year_Calculation_SE}&gt;1, {!Month_Calculation_SE}&gt;1), TEXT({!Year_Calculation_SE}) +&quot; &quot;+ &quot;Years&quot;+ &quot; &quot; + TEXT({!Month_Calculation_SE})  +&quot; &quot;+ &quot;Months&quot;, 
+IF(AND({!Year_Calculation_SE}&gt;1, {!Month_Calculation_SE}=1) , TEXT({!Year_Calculation_SE}) +&quot; &quot;+ &quot;Years&quot;+ &quot; &quot; + TEXT({!Month_Calculation_SE})  +&quot; &quot;+ &quot;Month&quot;, 
+IF(AND({!Year_Calculation_SE}=1, {!Month_Calculation_SE}&gt;1), TEXT({!Year_Calculation_SE}) +&quot; &quot;+ &quot;Year&quot;+ &quot; &quot; + TEXT({!Month_Calculation_SE})  +&quot; &quot;+ &quot;Months&quot;, 
+IF(AND({!Year_Calculation_SE}=1, {!Month_Calculation_SE}=1), TEXT({!Year_Calculation_SE}) +&quot; &quot;+ &quot;Year&quot;+ &quot; &quot; + TEXT({!Month_Calculation_SE})  +&quot; &quot;+ &quot;Month&quot;, 
+IF(AND({!Year_Calculation_SE}=0, {!Month_Calculation_SE}&gt;1), TEXT({!Month_Calculation_SE})  +&quot; &quot;+ &quot;Months&quot;, 
+IF(AND({!Year_Calculation_SE}=0, {!Month_Calculation_SE}=1), TEXT({!Month_Calculation_SE})  +&quot; &quot;+ &quot;Month&quot;, 
+IF(AND({!Year_Calculation_SE}&gt;1, {!Month_Calculation_SE}=0), TEXT({!Year_Calculation_SE}) +&quot; &quot;+ &quot;Years&quot;, 
+IF(AND({!Year_Calculation_SE}=1, {!Month_Calculation_SE}=0), TEXT({!Year_Calculation_SE}) +&quot; &quot;+ &quot;Year&quot;, &apos;&apos;))))))))</expression>
+    </formulas>
+    <formulas>
+        <name>Value_for_year_month_SE</name>
+        <dataType>Number</dataType>
+        <expression>((Value(RIGHT({!$Record.dbt__End_date__c},4))-Value(RIGHT({!$Record.dbt__Start_date__c},4)))* 12+ Value(LEFT( {!$Record.dbt__End_date__c},2)) - Value(LEFT({!$Record.dbt__Start_date__c},2)))</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Value_for_Year_Month_ST</name>
+        <dataType>Number</dataType>
+        <expression>((Year(TODAY())-Value(RIGHT({!$Record.dbt__Start_date__c},4)))* 12+ Month(TODAY()) - Value(LEFT( {!$Record.dbt__Start_date__c},2)))</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Year_Calculation_SE</name>
+        <dataType>Number</dataType>
+        <expression>FLOOR({!Value_for_year_month_SE}/12)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>Year_Calculation_ST</name>
+        <dataType>Number</dataType>
+        <expression>FLOOR({!Value_for_Year_Month_ST}/12)</expression>
+        <scale>0</scale>
+    </formulas>
+    <interviewLabel>Skill ResourceExperience Calculation RTF {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Skill ResourceExperience Calculation RTF</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Scenario_1_Value</name>
+        <label>Update Scenario 1 Value</label>
+        <locationX>50</locationX>
+        <locationY>395</locationY>
+        <inputAssignments>
+            <field>Experience__c</field>
+            <value>
+                <elementReference>StartDateandEndDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Scenario_2_Value</name>
+        <label>Update Scenario 2 Value</label>
+        <locationX>314</locationX>
+        <locationY>503</locationY>
+        <inputAssignments>
+            <field>Experience__c</field>
+            <value>
+                <elementReference>StartDateandCurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Start_Date_and_End_Date</targetReference>
+        </connector>
+        <object>Skill_Resource__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>MonthST</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>YearST</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

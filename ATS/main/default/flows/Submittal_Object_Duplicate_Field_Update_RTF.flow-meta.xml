@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <environments>Default</environments>
+    <formulas>
+        <name>Resource_Id_and_Job_Id</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.dbt__Resource__c} + &apos; &apos; + {!$Record.dbt__Job_Posting__c}</expression>
+    </formulas>
+    <interviewLabel>Submittal Object Duplicate Field Update RTF {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Submittal Object Duplicate Field Update RTF</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Duplicate_Record_text_Field</name>
+        <label>Update Duplicate Record text Field</label>
+        <locationX>176</locationX>
+        <locationY>287</locationY>
+        <inputAssignments>
+            <field>Duplicate_Record__c</field>
+            <value>
+                <elementReference>Resource_Id_and_Job_Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Duplicate_Record_text_Field</targetReference>
+        </connector>
+        <object>Submittal__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

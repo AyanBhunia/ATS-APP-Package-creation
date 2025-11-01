@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+    <decisions>
+        <name>Prospect_Status</name>
+        <label>Prospect Status</label>
+        <locationX>1238</locationX>
+        <locationY>287</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Prospect_Accept</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.dbt__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Internal Accept</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.dbt__Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Prospect</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Prospect_Accept_Field_Checking</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Prospect Accept</label>
+        </rules>
+        <rules>
+            <name>Internal_Verification_Accept</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.dbt__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Internal Accept</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.dbt__Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Internal Verification</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Internal_Verification_Accept_Field_Checking</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Internal Verification Accept</label>
+        </rules>
+        <rules>
+            <name>Ready_for_Submit_Accept</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.dbt__Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ready to Submit</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.dbt__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Internal Accept</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Ready_to_Submit_Accept_Field_Checking</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Ready for Submit Accept</label>
+        </rules>
+        <rules>
+            <name>Submitted_Accept</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.dbt__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Internal Accept</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.dbt__Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Submitted</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Submitted_Accept_Field_Checking</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Submitted Accept</label>
+        </rules>
+        <rules>
+            <name>HR_Interview_Accept</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.dbt__Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>HR Interview</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.dbt__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Client Accept</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>HR_Interview_Accept_Field_Checking</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>HR Interview Accept</label>
+        </rules>
+        <rules>
+            <name>Technical_Interview_1_Accept</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.dbt__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Client Accept</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.dbt__Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Technical Interview 1</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Technical_Interview_1_Accept_Field_Checking</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Technical Interview 1 Accept</label>
+        </rules>
+        <rules>
+            <name>Technical_Interview_2_Accept</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.dbt__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Client Accept</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.dbt__Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Technical Interview 2</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Technical_Interview_2_Accept_Field_Checking</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Technical Interview 2 Accept</label>
+        </rules>
+        <rules>
+            <name>Final_HR_Interview_Accept</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.dbt__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Client Accept</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.dbt__Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Final HR Interview</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Final_HR_Interview_Accept_Field_Checking</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Final HR Interview Accept</label>
+        </rules>
+        <rules>
+            <name>Reject_Status</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.dbt__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Client Reject</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.dbt__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Internal Reject</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Reject_Field_Checking</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Reject Status</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Submital Flow ATS APP RTF {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Submital Flow ATS APP RTF</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Final_HR_Interview_Accept_Field_Checking</name>
+        <label>Final HR Interview Accept Field Checking</label>
+        <locationX>1898</locationX>
+        <locationY>395</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Accepted_Date__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Accepted_Comment__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Stage__c</field>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>HR_Interview_Accept_Field_Checking</name>
+        <label>HR Interview Accept Field Checking</label>
+        <locationX>1106</locationX>
+        <locationY>395</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Accepted_Date__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Accepted_Comment__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Stage__c</field>
+            <value>
+                <stringValue>Technical Interview 1</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>In Progress</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Internal_Verification_Accept_Field_Checking</name>
+        <label>Internal Verification Accept Field Checking</label>
+        <locationX>314</locationX>
+        <locationY>395</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Accepted_Date__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Accepted_Comment__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Stage__c</field>
+            <value>
+                <stringValue>Ready to Submit</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>In Progress</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Prospect_Accept_Field_Checking</name>
+        <label>Prospect Accept Field Checking</label>
+        <locationX>50</locationX>
+        <locationY>395</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Accepted_Date__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Accepted_Comment__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Stage__c</field>
+            <value>
+                <stringValue>Internal Verification</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>In Progress</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Ready_to_Submit_Accept_Field_Checking</name>
+        <label>Ready to Submit Accept Field Checking</label>
+        <locationX>578</locationX>
+        <locationY>395</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Accepted_Date__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Accepted_Comment__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Stage__c</field>
+            <value>
+                <stringValue>Submitted</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>In Progress</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Reject_Field_Checking</name>
+        <label>Reject Field Checking</label>
+        <locationX>2162</locationX>
+        <locationY>395</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Rejected_Date__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Reason_for_Rejection__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Stage__c</field>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Submitted_Accept_Field_Checking</name>
+        <label>Submitted Accept Field Checking</label>
+        <locationX>842</locationX>
+        <locationY>395</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Accepted_Date__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Accepted_Comment__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Stage__c</field>
+            <value>
+                <stringValue>HR Interview</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>In Progress</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Technical_Interview_1_Accept_Field_Checking</name>
+        <label>Technical Interview 1 Accept Field Checking</label>
+        <locationX>1370</locationX>
+        <locationY>395</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Accepted_Date__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Accepted_Comment__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Stage__c</field>
+            <value>
+                <stringValue>Technical Interview 2</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>In Progress</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Technical_Interview_2_Accept_Field_Checking</name>
+        <label>Technical Interview 2 Accept Field Checking</label>
+        <locationX>1634</locationX>
+        <locationY>395</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Accepted_Date__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Accepted_Comment__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Stage__c</field>
+            <value>
+                <stringValue>Final HR Interview</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>In Progress</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>1112</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Prospect_Status</targetReference>
+        </connector>
+        <object>Submittal__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

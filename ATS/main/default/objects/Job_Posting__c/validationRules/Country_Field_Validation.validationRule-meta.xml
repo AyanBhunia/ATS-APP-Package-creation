@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Country_Field_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISPICKVAL( Country__c , &apos;&apos;),
+OR(
+ISPICKVAL( Work_Environment__c ,&apos;Work from Office&apos;),
+ISPICKVAL( Work_Environment__c , &apos;Hybrid&apos;)
+)
+)</errorConditionFormula>
+    <errorDisplayField>Country__c</errorDisplayField>
+    <errorMessage>Please fill Country</errorMessage>
+</ValidationRule>

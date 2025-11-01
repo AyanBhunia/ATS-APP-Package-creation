@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tech_interview2_date</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR(Technical_Interview_2_Date__c  &lt; Technical_Interview_1_Date__c, Technical_Interview_2_Date__c  &gt;  TODAY() )</errorConditionFormula>
+    <errorDisplayField>Technical_Interview_2_Date__c</errorDisplayField>
+    <errorMessage>Technical interview2 date is should be Technical interview1 date to current date</errorMessage>
+</ValidationRule>

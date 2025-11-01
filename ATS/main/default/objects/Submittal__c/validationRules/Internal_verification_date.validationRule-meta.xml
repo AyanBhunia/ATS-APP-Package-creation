@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Internal_verification_date</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR (Internal_Verification_Date__c  &lt;     DATEVALUE( CreatedDate ), Internal_Verification_Date__c  &gt;  TODAY() )</errorConditionFormula>
+    <errorDisplayField>Internal_Verification_Date__c</errorDisplayField>
+    <errorMessage>Internal verification date should be between record created date and current date</errorMessage>
+</ValidationRule>

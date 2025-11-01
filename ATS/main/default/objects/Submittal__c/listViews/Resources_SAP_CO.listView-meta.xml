@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resources_SAP_CO</fullName>
+    <columns>NAME</columns>
+    <columns>Resource__c</columns>
+    <columns>Accepted_Date__c</columns>
+    <columns>Stage__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Job_Title__c</field>
+        <operation>equals</operation>
+        <value>SAP CO (JUNIOR)</value>
+    </filters>
+    <label>Resources- SAP CO (JUNIOR)</label>
+</ListView>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stage__c</fullName>
+    <label>Stage</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Prospect</fullName>
+                <default>true</default>
+                <label>Prospect</label>
+            </value>
+            <value>
+                <fullName>Internal Verification</fullName>
+                <default>false</default>
+                <label>Internal Verification</label>
+            </value>
+            <value>
+                <fullName>Ready to Submit</fullName>
+                <default>false</default>
+                <label>Ready to Submit</label>
+            </value>
+            <value>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+                <label>Submitted</label>
+            </value>
+            <value>
+                <fullName>HR Interview</fullName>
+                <default>false</default>
+                <label>HR Interview</label>
+            </value>
+            <value>
+                <fullName>Technical Interview 1</fullName>
+                <default>false</default>
+                <label>Technical Interview 1</label>
+            </value>
+            <value>
+                <fullName>Technical Interview 2</fullName>
+                <default>false</default>
+                <label>Technical Interview 2</label>
+            </value>
+            <value>
+                <fullName>Final HR Interview</fullName>
+                <default>false</default>
+                <label>Final HR Interview</label>
+            </value>
+            <value>
+                <fullName>Closed</fullName>
+                <default>false</default>
+                <label>Closed</label>
+            </value>
+            <value>
+                <fullName>Final_Decision</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Final Decision</label>
+            </value>
+            <value>
+                <fullName>Internal Hold</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Internal Hold</label>
+            </value>
+            <value>
+                <fullName>Internal Rejection</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Internal Rejection</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

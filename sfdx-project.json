@@ -1,0 +1,34 @@
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true
+    },
+    {
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "path": "ATS/main/default",
+      "default": false,
+      "package": "ATS Unlocked Package",
+      "versionDescription": "Unlocked package for ATS app components"
+    },
+    {
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "path": "ATS",
+      "default": false,
+      "package": "ATS Managed Package",
+      "versionDescription": "ATS test"
+    }
+  ],
+  "name": "ATS APP Package creation",
+  "namespace": "dbt",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "65.0",
+  "packageAliases": {
+    "ATS Unlocked Package": "0HoKb000000sXw1KAE",
+    "ATS Managed Package": "0HoKb000000sXw6KAE",
+    "ATS Managed Package@0.1.0-1": "04tKb0000011N2JIAU",
+    "ATS Managed Package@0.1.0-2": "04tKb0000011N2OIAU"
+  }
+}

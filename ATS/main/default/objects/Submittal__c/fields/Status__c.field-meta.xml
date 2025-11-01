@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Stage__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+                <label>In Progress</label>
+            </value>
+            <value>
+                <fullName>Internal Accept</fullName>
+                <default>false</default>
+                <label>Internal Accept</label>
+            </value>
+            <value>
+                <fullName>Internal Hold</fullName>
+                <default>false</default>
+                <label>Internal Hold</label>
+            </value>
+            <value>
+                <fullName>Internal Reject</fullName>
+                <default>false</default>
+                <label>Internal Reject</label>
+            </value>
+            <value>
+                <fullName>Client Accept</fullName>
+                <default>false</default>
+                <label>Client Accept</label>
+            </value>
+            <value>
+                <fullName>Client Reject</fullName>
+                <default>false</default>
+                <label>Client Reject</label>
+            </value>
+            <value>
+                <fullName>Client Hold</fullName>
+                <default>false</default>
+                <label>Client Hold</label>
+            </value>
+            <value>
+                <fullName>Hold</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Hold</label>
+            </value>
+            <value>
+                <fullName>Reject</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Reject</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Prospect</controllingFieldValue>
+            <controllingFieldValue>Internal Verification</controllingFieldValue>
+            <controllingFieldValue>Ready to Submit</controllingFieldValue>
+            <controllingFieldValue>Submitted</controllingFieldValue>
+            <controllingFieldValue>HR Interview</controllingFieldValue>
+            <controllingFieldValue>Technical Interview 1</controllingFieldValue>
+            <controllingFieldValue>Technical Interview 2</controllingFieldValue>
+            <controllingFieldValue>Final HR Interview</controllingFieldValue>
+            <valueName>In Progress</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Prospect</controllingFieldValue>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <controllingFieldValue>Internal Verification</controllingFieldValue>
+            <controllingFieldValue>Ready to Submit</controllingFieldValue>
+            <controllingFieldValue>Submitted</controllingFieldValue>
+            <valueName>Internal Accept</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Prospect</controllingFieldValue>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <controllingFieldValue>Internal Verification</controllingFieldValue>
+            <controllingFieldValue>Ready to Submit</controllingFieldValue>
+            <controllingFieldValue>Submitted</controllingFieldValue>
+            <valueName>Internal Hold</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Prospect</controllingFieldValue>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <controllingFieldValue>Internal Verification</controllingFieldValue>
+            <controllingFieldValue>Ready to Submit</controllingFieldValue>
+            <controllingFieldValue>Submitted</controllingFieldValue>
+            <valueName>Internal Reject</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <controllingFieldValue>HR Interview</controllingFieldValue>
+            <controllingFieldValue>Technical Interview 1</controllingFieldValue>
+            <controllingFieldValue>Technical Interview 2</controllingFieldValue>
+            <controllingFieldValue>Final HR Interview</controllingFieldValue>
+            <valueName>Client Accept</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <controllingFieldValue>HR Interview</controllingFieldValue>
+            <controllingFieldValue>Technical Interview 1</controllingFieldValue>
+            <controllingFieldValue>Technical Interview 2</controllingFieldValue>
+            <controllingFieldValue>Final HR Interview</controllingFieldValue>
+            <valueName>Client Reject</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <controllingFieldValue>HR Interview</controllingFieldValue>
+            <controllingFieldValue>Technical Interview 1</controllingFieldValue>
+            <controllingFieldValue>Technical Interview 2</controllingFieldValue>
+            <controllingFieldValue>Final HR Interview</controllingFieldValue>
+            <valueName>Client Hold</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Package_Field_Validation_Rule</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISPICKVAL( Status__c,&apos;Client Accept&apos; ), ISBLANK(  Package__c  )  )</errorConditionFormula>
+    <errorDisplayField>Package__c</errorDisplayField>
+    <errorMessage>Fill this field</errorMessage>
+</ValidationRule>

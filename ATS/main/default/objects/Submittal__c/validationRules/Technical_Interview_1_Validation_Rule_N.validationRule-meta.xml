@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Technical_Interview_1_Validation_Rule_N</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISPICKVAL( Stage__c , &apos;Technical Interview 1&apos;),  ISBLANK( HR_Interview_Feedback__c ))</errorConditionFormula>
+    <errorDisplayField>HR_Interview_Feedback__c</errorDisplayField>
+    <errorMessage>Enter HR Interview Feedback</errorMessage>
+</ValidationRule>

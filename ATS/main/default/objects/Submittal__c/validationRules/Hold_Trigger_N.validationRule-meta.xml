@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hold_Trigger_N</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( OR(ISPICKVAL( Status__c , &apos;Internal Hold&apos;),  ISPICKVAL(Status__c , &apos;Client Hold&apos;) ) ,ISBLANK( Reason_for_Holding__c))</errorConditionFormula>
+    <errorDisplayField>Reason_for_Holding__c</errorDisplayField>
+    <errorMessage>Enter reason for holding</errorMessage>
+</ValidationRule>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reject_Trigger_Rule_FN</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( OR( ISPICKVAL( Status__c , &apos;Client Reject&apos;), ISPICKVAL(Status__c , &apos;Internal Reject&apos;)),ISNULL( Rejected_Date__c ))</errorConditionFormula>
+    <errorDisplayField>Rejected_Date__c</errorDisplayField>
+    <errorMessage>Enter Rejected Date</errorMessage>
+</ValidationRule>

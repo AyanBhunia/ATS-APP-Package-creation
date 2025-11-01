@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Final_HR_Interview_Client_Reject</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( ISPICKVAL(  Status__c  ,&apos;Client Reject&apos;), AND( NOT( ISBLANK( Final_HR_Interview_Date__c ) ), NOT( ISBLANK( Final_HR_Interview_Feedback__c ) )  ), False  )</errorConditionFormula>
+    <errorDisplayField>Final_HR_Interview_Feedback__c</errorDisplayField>
+    <errorMessage>Final HR Interview Feedback should be filled</errorMessage>
+</ValidationRule>
