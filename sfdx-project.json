@@ -1,45 +1,27 @@
 {
   "packageDirectories": [
     {
-      "path": "force-app",
-      "default": true
-    },
-    {
-      "versionName": "ver 0.1",
-      "versionNumber": "0.1.0.NEXT",
-      "path": "ATS/main/default",
-      "default": false,
-      "package": "ATS Unlocked Package",
-      "versionDescription": "Unlocked package for ATS app components"
-    },
-    {
-      "versionName": "ver 0.1",
-      "versionNumber": "0.1.0.NEXT",
       "path": "ATS",
-      "default": false,
-      "package": "ATS Managed Package",
-      "versionDescription": "ATS test"
-    },
-    {
-      "versionName": "ver 0.1",
-      "versionNumber": "0.1.0.NEXT",
-      "path": "ATS",
-      "default": false,
+      "default": true,
       "package": "ATS Managed Package3",
-      "versionDescription": "ATS test"
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT"
+    },
+    {
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "path": "ATS",
+      "default": false,
+      "package": "ATS Managed Package4",
+      "versionDescription": ""
     }
   ],
-  "name": "ATS APP Package creation",
   "namespace": "dbt",
-  "sfdcLoginUrl": "https://login.salesforce.com",
+  "name": "ATS APP Package creation",
   "sourceApiVersion": "65.0",
   "packageAliases": {
-    "ATS Unlocked Package": "0HoKb000000sXw1KAE",
-    "ATS Managed Package": "0HoKb000000sXw6KAE",
-    "ATS Managed Package@0.1.0-1": "04tKb0000011N2JIAU",
-    "ATS Managed Package3": "0HoKb000000sXwVKAU",
-    "ATS Managed Package3@0.1.0-1": "04tKb0000011N3MIAU",
-    "ATS Managed Package3@0.1.0-2": "04tKb0000011N3WIAU",
-    "ATS Managed Package3@0.1.0-3": "04tKb0000011N3gIAE"
+    "ATS Managed Package4": "0HoKb000000sXwkKAE",
+    "ATS Managed Package4@0.1.0-1": "04tKb0000011N66IAE",
+    "ATS Managed Package4@0.1.0-2": "04tKb0000011N6BIAU"
   }
 }

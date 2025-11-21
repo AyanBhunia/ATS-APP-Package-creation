@@ -38,7 +38,7 @@ public with sharing class SkillResourceController {
             if (Schema.sObjectType.Skill_Resource__c.isCreateable() || Schema.sObjectType.Skill_Resource__c.isUpdateable()) {
                 Database.upsert(skillResources, AccessLevel.USER_MODE); // Safe option
             } else {
-                throw new System.NoAccessException('You do not have permission to modify Skill_Resource__c records.');
+                throw new AuraHandledException('You do not have permission to modify Skill_Resource__c records.');
             }
         }
 
@@ -50,7 +50,7 @@ public with sharing class SkillResourceController {
                 ];
                 Database.delete(toDelete, AccessLevel.USER_MODE);
             } else {
-                throw new System.NoAccessException('You do not have permission to delete Skill_Resource__c records.');
+                throw new AuraHandledException('You do not have permission to delete Skill_Resource__c records.');
             }
         }
     }
